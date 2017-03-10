@@ -1,13 +1,17 @@
 package hu.roothema.homework.model;
 
+import java.time.LocalDateTime;
+
 public class EventContext {
 
     private final long id;
     private final String data;
+    private final String date;
 
     public EventContext(long id, String data) {
         this.id = id;
         this.data = data;
+        this.date = LocalDateTime.now().toString();
     }
 
     public long getId() {
@@ -16,6 +20,10 @@ public class EventContext {
 
     public String getData() {
         return data;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     @Override
