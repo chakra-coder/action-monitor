@@ -12,7 +12,7 @@ public class DataEntity {
 
     private String data;
 
-    public DataEntity() {
+    protected DataEntity() {
     }
 
     public DataEntity(String data) {
@@ -27,7 +27,30 @@ public class DataEntity {
         return data;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DataEntity that = (DataEntity) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        return data.equals(that.data);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + data.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "DataEntity{" +
+                "id=" + id +
+                ", data='" + data + '\'' +
+                '}';
     }
 }

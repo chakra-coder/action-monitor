@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.*;
 
@@ -35,6 +36,7 @@ public class DataRepositoryTest {
         // then
         assertThat("Entity is null", savedDataEntity, notNullValue());
         assertThat("Id isn't generated", savedDataEntity.getId(), notNullValue());
-        assertThat("Absent data", savedDataEntity.getData(), is(dataEntity.getData()));
+        assertThat("Absent data value", savedDataEntity.getData(), is(dataEntity.getData()));
+        assertThat("The stored and retrieved entity isn't the same", savedDataEntity, equalTo(dataRepository.findOne(savedDataEntity.getId())));
     }
 }
