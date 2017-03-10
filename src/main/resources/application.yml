@@ -1,0 +1,21 @@
+logging:
+  level:
+    ROOT: info
+
+spring:
+  application.name: action-monitor-service
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    show-sql: false
+    hibernate.naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+    database-platform: org.hibernate.dialect.H2Dialect
+
+flyway:
+  validate-on-migrate: true
+  enabled: true
+  user: sa
+  password:
