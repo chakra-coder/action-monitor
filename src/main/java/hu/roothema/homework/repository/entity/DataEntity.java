@@ -15,6 +15,11 @@ public class DataEntity {
     protected DataEntity() {
     }
 
+    public DataEntity(Long id, String data) {
+        this.id = id;
+        this.data = data;
+    }
+
     public DataEntity(String data) {
         this.data = data;
     }
