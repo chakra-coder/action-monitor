@@ -19,3 +19,5 @@ flyway:
   enabled: true
   user: sa
   password:
+
+application.version: 0.0.1
