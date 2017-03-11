@@ -2,8 +2,15 @@ logging:
   level:
     ROOT: info
 
+broker.host: ${ACTIVE_MQ_URL:localhost}
+
 spring:
   application.name: action-monitor-service
+  activemq:
+    user: admin
+    password: admin
+    broker-url: ${ACTIVE_MQ_URL:localhost}:61616
+    in-memory: false
   datasource:
     driverClassName: org.h2.Driver
     url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE

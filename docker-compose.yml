@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  activemq:
+    image: rmohr/activemq:latest
+    ports:
+     - 61616:61616
+     - 8161:8161
+     - 61613:61613
+
+  action-monitor-service:
+    image: roothema/action-monitor-service:latest
+    links:
+     - activemq
+    ports:
+       - 8080:8080
+    environment:
+      - ACTIVE_MQ_URL=activemq
