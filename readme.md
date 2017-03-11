@@ -15,10 +15,15 @@
     http://localhost:8080/
     
 # Storing new 'Data'  
+
    POST http://localhost:8080/v1/data
+   
    Headers:
+   
     Content-Type: application/json
+    
    Payload:
+   
        {
         "data": "42"
        }
